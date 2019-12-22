@@ -55,7 +55,7 @@ function getRegexForGuid() {
  */
 function getRegexForPitSpot() {
   // ;
-  throw new Error('Not implemented');
+  return /s+|w+|i+/;
 }
 
 

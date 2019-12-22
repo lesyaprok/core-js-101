@@ -51,11 +51,9 @@ function getCicleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  // return (value1 + value2) / 2;
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  return (value1 / 2 + value2 / 2);
 }
-
 /**
  * Returns a distance beetween two points by cartesian coordinates.
  *
@@ -159,8 +157,8 @@ function parseNumberFromString(value) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelipidedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelipidedDiagonal(a, b, c) {
+  return Math.sqrt(a ** 2 + b ** 2 + c ** 2);
 }
 
 /**
@@ -181,6 +179,7 @@ function getParallelipidedDiagonal(/* a, b, c */) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(/* num, pow */) {
+  // return num.toFixed(pow);
   throw new Error('Not implemented');
 }
 
@@ -202,6 +201,16 @@ function roundToPowerOfTen(/* num, pow */) {
  *   17 => true
  */
 function isPrime(/* n */) {
+  // if (n === 2 || n % 2 === 0) return true;
+  // const k = Math.round(Math.sqrt(n));
+  // let flag = false;
+  // for (let i = 3; i <= k; i += 2) {
+  //   if (k % i !== 0) {
+  //     flag = true;
+  //     break;
+  //   }
+  // }
+  // return (flag === true);
   throw new Error('Not implemented');
 }
 
@@ -221,6 +230,8 @@ function isPrime(/* n */) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(/* value, def */) {
+  // return (typeof +value === 'number'
+  // || (typeof value === 'object' && value instanceof Number)) ? +value : def;
   throw new Error('Not implemented');
 }
 

@@ -54,6 +54,7 @@ function getRegexForGuid() {
  *
  */
 function getRegexForPitSpot() {
+  // ;
   throw new Error('Not implemented');
 }
 
@@ -79,6 +80,8 @@ function getRegexForPitSpot() {
  *   'Pa55'.match(validator) => false
  */
 function getPasswordValidator(/* minLength */) {
+  // const validator = getPasswordValidator(minLength);
+  // return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{${minLength},}$/.test(validator);
   throw new Error('Not implemented');
 }
 

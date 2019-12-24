@@ -292,8 +292,20 @@ function reverseInteger(num) {
  *   5436468789016589 => false
  *   4916123456789012 => false
  */
-function isCreditCardNumber(/* ccn */) {
-  throw new Error('Not implemented');
+function isCreditCardNumber(ccn) {
+  let s = 0;
+  const str = ccn.toString();
+  for (let i = 0; i < str.length; i += 1) {
+    let num = parseInt(str[i], 10);
+    if ((str.length - i) % 2 === 0) {
+      num *= 2;
+      if (num > 9) {
+        num -= 9;
+      }
+    }
+    s += num;
+  }
+  return !(s % 10);
 }
 
 /**
@@ -349,8 +361,20 @@ function getDigitalRoot(num) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced(/* str */) {
-  throw new Error('Not implemented');
+function isBracketsBalanced(str) {
+  const openBrackets = ['[', '(', '{', '<'];
+  const closeBrackets = [']', ')', '}', '>'];
+  const stack = [];
+  for (let i = 0; i < str.length; i += 1) {
+    if (openBrackets.includes(str[i])) {
+      stack.push(str[i]);
+    } else {
+      const close = closeBrackets.indexOf(str[i]);
+      const open = openBrackets.indexOf(stack.pop());
+      if (close !== open) return false;
+    }
+  }
+  return (!stack.length);
 }
 
 
@@ -391,8 +415,17 @@ function toNaryString(num, n) {
  *   ['/web/assets/style.css', '/.bin/mocha',  '/read.me'] => '/'
  *   ['/web/favicon.ico', '/web-scripts/dump', '/webalizer/logs'] => '/'
  */
-function getCommonDirectoryPath(/* pathes */) {
-  throw new Error('Not implemented');
+function getCommonDirectoryPath(pathes) {
+  let f = pathes[0];
+  for (let i = 1; i < pathes.length; i += 1) {
+    for (let n = 0; n < f.length; n += 1) {
+      if (f[n] !== pathes[i][n]) {
+        f = f.substring(0, n);
+      }
+    }
+  }
+  const result = f.substring(0, f.lastIndexOf('/') + 1);
+  return result;
 }
 
 

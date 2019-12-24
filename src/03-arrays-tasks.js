@@ -199,8 +199,8 @@ function getTail(arr, n) {
  *    +'20,21,22,23,24\n'
  *    +'30,31,32,33,34'
  */
-function toCsvText(/* arr */) {
-  throw new Error('Not implemented');
+function toCsvText(arr) {
+  return arr.map((e) => `${e.join(',')}\n`).join('').slice(0, -1);
 }
 
 /**
@@ -452,8 +452,14 @@ function sortCitiesArray(arr) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  const arr = Array(n);
+  arr.fill(Array(n).fill(0));
+  return arr.map((e, i) => {
+    const newArr = [].concat(e);
+    newArr[i] = 1;
+    return newArr;
+  });
 }
 
 /**
@@ -519,8 +525,17 @@ function distinct(arr) {
  *    "Poland" => ["Lodz"]
  *   }
  */
-function group(/* array, keySelector, valueSelector */) {
-  throw new Error('Not implemented');
+function group(array, keySelector, valueSelector) {
+  const map = new Map();
+  array.map((e) => {
+    if (map.has(keySelector(e))) {
+      map.get(keySelector(e)).push(valueSelector(e));
+    } else {
+      map.set(keySelector(e), [valueSelector(e)]);
+    }
+    return e;
+  });
+  return map;
 }
 
 
